@@ -49,7 +49,8 @@ class _HomeScreenState extends State<HomeScreen>
                             children: [
                               Container(
                                 alignment: Alignment.center,
-                                margin: const EdgeInsets.symmetric(vertical: 9),
+                                margin:
+                                    const EdgeInsets.symmetric(vertical: 10.0),
                                 child: RotatedBox(
                                   quarterTurns: -1,
                                   child: Text(

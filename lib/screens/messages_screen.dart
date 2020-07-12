@@ -4,9 +4,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tawkil/screens/chat_screen.dart';
 import 'package:tawkil/utils/constants.dart';
 
-class MessageScreen extends StatelessWidget {
-  const MessageScreen({Key key}) : super(key: key);
+class MessageScreen extends StatefulWidget {
+  @override
+  _MessageScreenState createState() => _MessageScreenState();
+}
 
+class _MessageScreenState extends State<MessageScreen> {
   _gotoChatRoom({BuildContext context}) {
     Navigator.push(
       context,
@@ -16,18 +19,42 @@ class MessageScreen extends StatelessWidget {
     );
   }
 
+  bool isSearchAppBar = false;
+
+  _toggleAppBar() {
+    setState(() {
+      isSearchAppBar = !isSearchAppBar;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text(
-          'Messages',
-          style: kBigText.copyWith(fontSize: 28, color: kGreen),
-        ),
+        elevation: 2,
+        title: isSearchAppBar
+            ? TextFormField(
+                decoration: InputDecoration(hintText: 'Search user..'),
+              )
+            : Text(
+                'Messages',
+                style: kBigText.copyWith(fontSize: 28, color: kGreen),
+              ),
         actions: <Widget>[
-          IconButton(icon: Icon(FontAwesomeIcons.search), onPressed: null),
-          IconButton(icon: Icon(FontAwesomeIcons.plusCircle), onPressed: null),
+          IconButton(
+              icon: Icon(
+                FontAwesomeIcons.search,
+                color: isSearchAppBar ? kGreen : Colors.grey,
+              ),
+              onPressed: _toggleAppBar),
+          IconButton(
+              icon: Icon(
+                FontAwesomeIcons.plusCircle,
+                color: isSearchAppBar ? kGreen : Colors.grey,
+              ),
+              onPressed: null),
         ],
       ),
       body: SafeArea(
@@ -35,7 +62,16 @@ class MessageScreen extends StatelessWidget {
           itemCount: 34,
           itemBuilder: (_, index) {
             return Container(
-              margin: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: kLighterGrey.withAlpha(100),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  bottomLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
+              ),
+              margin:
+                  const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
               child: ListTile(
                 onTap: () => _gotoChatRoom(context: context),
                 leading: Container(

@@ -28,7 +28,9 @@ class HomeHeader extends StatelessWidget {
                   height: 50,
                   width: 50,
                   decoration: BoxDecoration(
-                    color: Colors.blue,
+                    image: DecorationImage(
+                      image: AssetImage('assets/man.png'),
+                    ),
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                 )
@@ -40,11 +42,17 @@ class HomeHeader extends StatelessWidget {
             ),
             SizedBox(height: 30.0),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 Container(
                   width: 250,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: kGreen),
+                  ),
                   child: TextFormField(
                     decoration: InputDecoration(
+                      border: InputBorder.none,
                       prefixIcon: Icon(
                         FontAwesomeIcons.search,
                         color: kLightGreen.withAlpha(150),
@@ -53,14 +61,12 @@ class HomeHeader extends StatelessWidget {
                       hintStyle: kHintStyle.copyWith(
                         color: kLighterGreen.withAlpha(80),
                       ),
-                      border: OutlineInputBorder(),
                     ),
                   ),
                 ),
-                Spacer(),
                 Container(
-                  height: 55.0,
-                  width: 55.0,
+                  height: 45.0,
+                  width: 45.0,
                   decoration: BoxDecoration(
                     color: kLighterGreen.withAlpha(150),
                     borderRadius: BorderRadius.circular(15.0),
