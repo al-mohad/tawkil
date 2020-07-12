@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tawkil/screens/signin_screen.dart';
-import 'package:tawkil/screens/signup_screen.dart';
 import 'package:tawkil/utils/constants.dart';
 
-class Welcomescreen extends StatelessWidget {
+class WelcomeScreen extends StatelessWidget {
   static String id = 'welcomeScreen';
-  const Welcomescreen({Key key}) : super(key: key);
+  const WelcomeScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,29 @@ class Welcomescreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Container(),
+            child: Container(
+              child: Stack(
+                alignment: Alignment.bottomRight,
+                children: <Widget>[
+                  Positioned(
+                    bottom: 26,
+                    right: 100,
+                    child: Text('Tawkil', style: kBigText),
+                  ),
+                  Positioned(
+                    right: -8,
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 30, bottom: 20),
+                      child: Icon(
+                        FontAwesomeIcons.kaaba,
+                        color: Colors.white,
+                        size: 70,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tawkil/screens/home_screen.dart';
+import 'package:tawkil/screens/main_screen.dart';
 import 'package:tawkil/screens/signin_screen.dart';
 import 'package:tawkil/screens/signup_screen.dart';
 import 'package:tawkil/screens/welcome_screen.dart';
@@ -16,12 +16,12 @@ class Tawkil extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: kLightGreen),
       routes: {
-        Welcomescreen.id: (context) => Welcomescreen(),
+        WelcomeScreen.id: (context) => WelcomeScreen(),
         SignInScreen.id: (context) => SignInScreen(),
         SignUpScreen.id: (context) => SignUpScreen(),
-        HomeScreen.id: (context) => HomeScreen()
+        MainScreen.id: (context) => MainScreen()
       },
-      initialRoute: Welcomescreen.id,
+      initialRoute: WelcomeScreen.id,
     );
   }
 }

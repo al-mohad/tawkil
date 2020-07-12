@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tawkil/screens/home_screen.dart';
+import 'package:tawkil/screens/main_screen.dart';
 import 'package:tawkil/utils/constants.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -53,7 +53,7 @@ class SignInScreen extends StatelessWidget {
                 onTap: () => Navigator.push(
                   context,
                   CupertinoPageRoute(
-                    builder: (_) => HomeScreen(),
+                    builder: (_) => MainScreen(),
                   ),
                 ),
                 child: Container(
