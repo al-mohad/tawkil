@@ -1,11 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tawkil/components/forgot_pass.dart';
 import 'package:tawkil/screens/main_screen.dart';
 import 'package:tawkil/utils/constants.dart';
 
 class SignInScreen extends StatelessWidget {
   static String id = 'signin';
   const SignInScreen({Key key}) : super(key: key);
+  _forgotPass(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) => ForgotPass(
+        title: 'TAWKIL',
+        icon: FontAwesomeIcons.kaaba,
+        description: 'Recover your password',
+        buttonText: 'Recover',
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +52,12 @@ class SignInScreen extends StatelessWidget {
                       SizedBox(height: 15.0),
                       Align(
                         alignment: Alignment.topRight,
-                        child: Text(
-                          'Forgot pass.',
-                          style: TextStyle(fontFamily: 'Product Sans'),
+                        child: GestureDetector(
+                          onTap: () => _forgotPass(context),
+                          child: Text(
+                            'Forgot pass.',
+                            style: TextStyle(fontFamily: 'Product Sans'),
+                          ),
                         ),
                       ),
                     ],

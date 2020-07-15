@@ -11,6 +11,7 @@ class NotificationsScreen extends StatelessWidget {
       backgroundColor: Color(0xffeeeef0),
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               'NOTIFICATION',
@@ -24,8 +25,9 @@ class NotificationsScreen extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         margin:
-                            EdgeInsets.only(top: 20.0, left: 10.0, right: 20.0),
-                        padding: EdgeInsets.all(10),
+                            EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
+                        padding: EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 20.0),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
@@ -34,16 +36,27 @@ class NotificationsScreen extends StatelessWidget {
                             bottomRight: Radius.circular(20),
                           ),
                         ),
-                        child: Text(
-                            'This is the details page of the big data web page i designed. The first screen is 2D illustrations of my business.'),
+                        child: Row(
+                          children: <Widget>[
+                            Expanded(
+                              flex: 4,
+                              child: Text(
+                                'This is the details page of the big data web page i designed. The first screen is 2D illustrations of my business.',
+                                textAlign: TextAlign.justify,
+                              ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: CircleAvatar(
+                                radius: 20,
+                                backgroundColor: Colors.transparent,
+                                child: Icon(FontAwesomeIcons.solidBell,
+                                    color: kLighterGreen),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      RotatedBox(
-                        quarterTurns: -95,
-                        child: Container(
-                            margin: EdgeInsets.only(
-                                right: 10.0, top: 0.0, bottom: 50),
-                            child: Icon(FontAwesomeIcons.solidBell)),
-                      )
                     ],
                   );
                 },

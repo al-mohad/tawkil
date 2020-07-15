@@ -36,7 +36,8 @@ class _MessageScreenState extends State<MessageScreen> {
         elevation: 2,
         title: isSearchAppBar
             ? TextFormField(
-                decoration: InputDecoration(hintText: 'Search user..'),
+                decoration: InputDecoration(
+                    hintText: 'Search user..', border: InputBorder.none),
               )
             : Text(
                 'Messages',
